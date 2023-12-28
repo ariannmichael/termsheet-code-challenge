@@ -1,5 +1,14 @@
 .card {
  width: 26rem;
+
+ &__link {
+  display: flex;
+  width: 100%;
+
+  &__header {
+   margin-left: 0.6rem;
+  }
+ }
 }
 
 .card__divider {
@@ -32,7 +41,7 @@
 
 ::ng-deep .mdc-card__actions {
  justify-content: flex-end !important;
- width: 60% !important;
+ // width: 60% !important;
 }
 
 ::ng-deep .mat-mdc-card {

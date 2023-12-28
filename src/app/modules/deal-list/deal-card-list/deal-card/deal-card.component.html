@@ -1,8 +1,12 @@
 <mat-card class="card">
   <mat-card-header>
-    <img mat-card-avatar [src]="deal.image" alt="Deal Image">
-    <mat-card-title>{{ deal.name }}</mat-card-title>
-    <mat-card-subtitle>{{ deal.address }}</mat-card-subtitle>
+    <a [routerLink]="[ '/deal', deal.id ]" class="card__link">
+      <img mat-card-avatar [src]="deal.image" alt="Deal Image">
+      <div class="card__link__header">
+        <mat-card-title>{{ deal.name }}</mat-card-title>
+        <mat-card-subtitle>{{ deal.address }}</mat-card-subtitle>
+      </div>
+    </a>
     <mat-card-actions>
       <button mat-icon-button aria-label="Example icon button with a home icon">
         <mat-icon>edit</mat-icon>

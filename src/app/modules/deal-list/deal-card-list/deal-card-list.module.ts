@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { DealCardListComponent } from './deal-card-list.component';
 import { DealCardComponent } from './deal-card/deal-card.component';
 import { MatCardModule } from '@angular/material/card';
@@ -14,6 +15,7 @@ import { MatButtonModule } from '@angular/material/button';
  ],
  imports: [
   CommonModule,
+  RouterModule,
   MatCardModule,
   MatGridListModule,
   MatIconModule,
