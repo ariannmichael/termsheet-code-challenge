@@ -1,8 +1,40 @@
-.example-card {
- max-width: 400px;
+.card {
+ width: 26rem;
 }
 
-.example-header-image {
- background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
- background-size: cover;
+.card__divider {
+ width: 92%;
+}
+
+.card__content {
+ &__attributes {
+  h4 {
+   margin: 0.5rem 0.2rem;
+  }
+  p {
+   margin: 0rem 0.2rem;
+   color: var(--dark-gray);
+  }
+ }
+}
+
+.mat-mdc-card-header {
+ align-items: center;
+}
+
+.mat-icon {
+ color: var(--dark-gray) !important;
+}
+
+::ng-deep .mat-grid-tile-content {
+ justify-content: flex-start !important;
+}
+
+::ng-deep .mdc-card__actions {
+ justify-content: flex-end !important;
+ width: 60% !important;
+}
+
+::ng-deep .mat-mdc-card {
+ background: linear-gradient(to left, var(--white) 98%, var(--color) 50%) !important;
 }
