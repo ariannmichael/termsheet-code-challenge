@@ -1,9 +1,16 @@
 <section>
  <div class="deal-card-list">
   <mat-grid-list cols="3" rowHeight="16rem" gutterSize="1rem">
-   <mat-grid-tile *ngFor="let deal of deals">
+   <mat-grid-tile *ngFor="let deal of splicedData">
     <app-deal-card [deal]="deal" (editDealEvent)="onEditDeal($event)"></app-deal-card>
    </mat-grid-tile>
   </mat-grid-list>
+  <mat-paginator #paginator 
+   (page)="pageChangeEvent($event)"
+   [length]="pageLength" 
+   [pageSize]="pageSize" 
+   [pageSizeOptions]="pageSizeOptions" 
+   aria-label="Select page">
+  </mat-paginator>
  </div>
 </section>
