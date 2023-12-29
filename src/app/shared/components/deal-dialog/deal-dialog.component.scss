@@ -1,0 +1,15 @@
+.deal-dialog {
+ width: 40rem;
+ height: 30rem;
+ padding-top: 1rem;
+
+ &__divider {
+  width: 95%;
+ }
+}
+
+.mat-mdc-dialog-actions {
+ padding-right: 1rem;
+ justify-content: flex-end;
+ margin-top: 1rem;
+}

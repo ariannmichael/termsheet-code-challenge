@@ -1,4 +1,4 @@
-import { Component, HostBinding, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, HostBinding, Input, OnInit, Output } from '@angular/core';
 import { Deal } from '../../../../shared/models/deal.model';
 
 @Component({
@@ -12,6 +12,9 @@ export class DealCardComponent implements OnInit {
   @Input()
   deal!: Deal;
 
+  @Output()
+  editDealEvent = new EventEmitter<Deal>();
+
   ngOnInit(): void {
     this.updateBackgroundColor();
   }
@@ -24,5 +27,9 @@ export class DealCardComponent implements OnInit {
     } else {
       this.color = '#F94B76';
     }
+  }
+
+  onEdit(): void {
+    this.editDealEvent.emit(this.deal);
   }
 }

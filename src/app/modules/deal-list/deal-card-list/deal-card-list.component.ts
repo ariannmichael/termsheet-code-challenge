@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Deal } from '../../../shared/models/deal.model';
 
 @Component({
@@ -9,4 +9,11 @@ import { Deal } from '../../../shared/models/deal.model';
 export class DealCardListComponent {
   @Input()
   deals: Deal[] = [];
+
+  @Output()
+  editDealEvent = new EventEmitter<Deal>();
+
+  onEditDeal(deal: Deal): void {
+    this.editDealEvent.emit(deal);
+  }
 }

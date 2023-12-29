@@ -102,6 +102,14 @@ export class DealService {
   return this.deals;
  }
 
+ public editDeal(deal: Deal): Deal[] {
+  const index = this.deals.findIndex(d => d.id === deal.id);
+  this.deals[index] = deal;
+  console.log(this.deals);
+  
+  return this.deals;
+ }
+
  public searchDealsByName(dealName: string): Deal[] {
   return this.deals.filter(deal => deal.name.toLowerCase().includes(dealName.toLowerCase()));
  }

@@ -1,0 +1,71 @@
+<form class="deal-dialog" [formGroup]="dealForm" (submit)="dealSubmit()">
+ <div mat-dialog-title>
+  <mat-form-field appearance="outline">
+   <mat-label>Name</mat-label>
+   <input matInput formControlName="name">
+  </mat-form-field>
+ </div>
+ <hr class="deal-dialog__divider" />
+ <div mat-dialog-content>
+  <mat-grid-list cols="2" rowHeight="5rem" gutterSize="1rem">
+
+   <mat-grid-tile>
+    <mat-form-field appearance="outline">
+     <mat-label>Address</mat-label>
+     <input matInput formControlName="address">
+    </mat-form-field>
+   </mat-grid-tile>
+
+   <mat-grid-tile>
+    <mat-form-field appearance="outline">
+     <mat-label>NOI</mat-label>
+     <input matInput type="number" formControlName="noi">
+     <span matTextPrefix>$&nbsp;</span>
+     <span matTextSuffix>.00</span>
+    </mat-form-field>
+   </mat-grid-tile>
+
+   <mat-grid-tile>
+    <mat-form-field appearance="outline">
+     <mat-label>Image URL</mat-label>
+     <input matInput formControlName="image">
+    </mat-form-field>
+   </mat-grid-tile>
+
+   <mat-grid-tile>
+    <mat-form-field appearance="outline">
+     <mat-label>Purchase Price</mat-label>
+     <input matInput type="number" formControlName="purchasePrice">
+     <span matTextPrefix>$&nbsp;</span>
+     <span matTextSuffix>.00</span>
+    </mat-form-field>
+   </mat-grid-tile>
+
+   <mat-grid-tile>
+    <mat-form-field appearance="outline">
+     <mat-label>Type</mat-label>
+     <mat-select formControlName="type">
+      @for (dealType of dealTypes; track dealType) {
+       <mat-option [value]="dealType">{{ dealType }}</mat-option>
+      }
+     </mat-select>
+    </mat-form-field>
+   </mat-grid-tile>
+
+   <mat-grid-tile>
+    <mat-form-field appearance="outline">
+     <mat-label>Cap Rate</mat-label>
+     <input matInput type="number" formControlName="capRate">
+     <span matTextPrefix>&nbsp;</span>
+     <span matTextSuffix>&nbsp;&nbsp;&nbsp;%&nbsp;</span>
+    </mat-form-field>
+   </mat-grid-tile>
+
+  </mat-grid-list>
+ </div>
+ <div mat-dialog-actions>
+  <button mat-raised-button color="warn" (click)="onNoClick()">Confirm</button>
+  <button mat-raised-button (click)="onNoClick()">Cancel</button>
+  <!-- <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button> -->
+ </div>
+</form>

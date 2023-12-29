@@ -17,6 +17,6 @@
     </button>
    </div>
   </mat-toolbar>
-  <app-deal-card-list [deals]="deals"></app-deal-card-list>
+  <app-deal-card-list [deals]="deals" (editDealEvent)="onEdit($event)"></app-deal-card-list>
  </div>
 </section>
