@@ -40,6 +40,7 @@ export class DealListComponent implements OnInit{
     });
 
     dialogRef.afterClosed().subscribe((result: Deal) => {
+      if(!result) return;
       this.dealService.addDeal(result);
     });
   }
@@ -50,6 +51,7 @@ export class DealListComponent implements OnInit{
     });
 
     dialogRef.afterClosed().subscribe((result: Deal) => {
+      if(!result) return;
       this.dealService.editDeal(result);
     });
   }

@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnChanges, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -35,7 +35,7 @@ import { MatSelectModule } from '@angular/material/select';
   templateUrl: './deal-dialog.component.html',
   styleUrl: './deal-dialog.component.scss'
 })
-export class DealDialogComponent implements OnInit{
+export class DealDialogComponent implements OnInit {
   dealTypes: string[] = ['Acquisition', 'Lease', 'Development'];
   dealForm!: FormGroup
 
@@ -47,6 +47,7 @@ export class DealDialogComponent implements OnInit{
 
   ngOnInit(): void {
     this.createForm();
+    this.updateCapRate();
   }
 
   createForm(): void {
@@ -62,6 +63,33 @@ export class DealDialogComponent implements OnInit{
     });
   }
 
+  updateCapRate(): void {
+    let noi = 0;
+    let purchasePrice = 0;
+
+    this.dealForm.get('noi')?.valueChanges.subscribe((noiValue: number) => {
+      noi = noiValue;
+      const result = this.calculateCapRate(noi, purchasePrice);
+      this.dealForm.patchValue({ capRate: result });
+    });
+
+    this.dealForm.get('purchasePrice')?.valueChanges.subscribe((purchasePriceValue: number) => {
+      purchasePrice = purchasePriceValue;
+      const result = this.calculateCapRate(noi, purchasePrice);
+      this.dealForm.patchValue({ capRate: result });
+    });
+  }
+
+  calculateCapRate(noi: number, purchasePrice: number): string {
+    let result = '0.00';
+
+    if(noi > 0 && purchasePrice > 0) {
+      result = (Math.round(noi / purchasePrice).toFixed(2));
+    }
+
+    return result;
+  }
+
   dealSubmit(): void {
     this.dialogRef.close({
       ...this.dealForm.value, 
@@ -69,7 +97,8 @@ export class DealDialogComponent implements OnInit{
     });
   }
 
-  onNoClick(): void {
+  cancel(): void {
+    this.dealForm.reset();
     this.dialogRef.close();
   }
 }

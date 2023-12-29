@@ -1,4 +1,4 @@
-<form class="deal-dialog" [formGroup]="dealForm" (submit)="dealSubmit()">
+<form class="deal-dialog" [formGroup]="dealForm">
  <div mat-dialog-title>
   <mat-form-field appearance="outline">
    <mat-label>Name</mat-label>
@@ -55,7 +55,7 @@
    <mat-grid-tile>
     <mat-form-field appearance="outline">
      <mat-label>Cap Rate</mat-label>
-     <input matInput type="number" formControlName="capRate">
+     <input matInput type="number" [value]="dealForm.value.capRate" formControlName="capRate">
      <span matTextPrefix>&nbsp;</span>
      <span matTextSuffix>&nbsp;&nbsp;&nbsp;%&nbsp;</span>
     </mat-form-field>
@@ -64,8 +64,7 @@
   </mat-grid-list>
  </div>
  <div mat-dialog-actions>
-  <button mat-raised-button color="warn" (click)="onNoClick()">Confirm</button>
-  <button mat-raised-button (click)="onNoClick()">Cancel</button>
-  <!-- <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button> -->
+  <button mat-raised-button class="button--confirm" (click)="dealSubmit()">Confirm</button>
+  <button mat-raised-button (click)="cancel()">Cancel</button>
  </div>
 </form>
