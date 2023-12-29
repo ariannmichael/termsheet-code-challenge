@@ -16,6 +16,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 It contains all the information about the Deal.
 
+## Layout:
+
+The layout was first planned using [figma](https://www.figma.com/file/R1CCbv1cXBybeI8iUmHbUB/TermSheet-Code-Challenge?type=design&mode=design&t=dTDq4BJBNDWNBRn9-1)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
