@@ -39,9 +39,11 @@ export class DealListComponent implements OnInit{
       },
     });
 
-    dialogRef.afterClosed().subscribe((result: Deal) => {
+    dialogRef.afterClosed().subscribe((result: Deal[]) => {
       if(!result) return;
-      this.dealService.addDeal(result);
+      result.map((deal: Deal) => {
+        this.dealService.addDeal(deal);
+      });
     });
   }
 
@@ -50,9 +52,9 @@ export class DealListComponent implements OnInit{
       data: {...deal, capRate: deal.capRate * 100},
     });
 
-    dialogRef.afterClosed().subscribe((result: Deal) => {
+    dialogRef.afterClosed().subscribe((result: Deal[]) => {
       if(!result) return;
-      this.dealService.editDeal(result);
+      this.dealService.editDeal(result[0]);
     });
   }
 

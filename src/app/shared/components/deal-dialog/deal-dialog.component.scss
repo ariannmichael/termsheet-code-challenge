@@ -1,20 +1,24 @@
 .deal-dialog {
  width: 40rem;
- height: 30rem;
+ height: 24rem;
  padding-top: 1rem;
-
- &__divider {
-  width: 95%;
- }
 }
 
 .mat-mdc-dialog-actions {
  padding-right: 1rem;
  justify-content: flex-end;
- margin-top: 1rem;
 }
 
 .button--confirm {
  background-color: var(--dark-orange);
  color: var(--white);
+}
+
+.button--add {
+ @extend .button--confirm;
+}
+
+::ng-deep .cdk-global-overlay-wrapper {
+ overflow: auto !important;
+ pointer-events: auto !important;  // needed for chrome but prevents backdrop click close
 }

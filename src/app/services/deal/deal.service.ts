@@ -17,7 +17,7 @@ export class DealService {
     noi: 44709,
     purchasePrice: 361994,
     capRate: 0.12,
-    image: 'assets/images/elgin-01.jpeg'
+    image: 'assets/images/warehousing-01.jpg'
   },
   {
     id: 2,
@@ -26,8 +26,8 @@ export class DealService {
     address: '6391 Elgin St. Celina',
     noi: 911725,
     purchasePrice: 126483,
-    capRate: 0.06,
-    image: 'assets/images/warehousing-01.jpg'
+    capRate: 0.07,
+    image: 'assets/images/elgin-01.jpeg'
   },
   {
     id: 3,
@@ -37,7 +37,7 @@ export class DealService {
     noi: 44709,
     purchasePrice: 361994,
     capRate: 0.12,
-    image: 'assets/images/elgin-01.jpeg'
+    image: 'assets/images/warehousing-01.jpg'
   },
   {
     id: 4,
@@ -46,8 +46,8 @@ export class DealService {
     address: '6391 Elgin St. Celina',
     noi: 911725,
     purchasePrice: 126483,
-    capRate: 0.06,
-    image: 'assets/images/warehousing-01.jpg'
+    capRate: 0.07,
+    image: 'assets/images/elgin-01.jpeg'
   },
   {
     id: 5,
@@ -57,7 +57,7 @@ export class DealService {
     noi: 44709,
     purchasePrice: 361994,
     capRate: 0.12,
-    image: 'assets/images/elgin-01.jpeg'
+    image: 'assets/images/warehousing-01.jpg'
   },
   {
     id: 6,
@@ -66,8 +66,8 @@ export class DealService {
     address: '6391 Elgin St. Celina',
     noi: 911725,
     purchasePrice: 126483,
-    capRate: 0.06,
-    image: 'assets/images/warehousing-01.jpg'
+    capRate: 0.07,
+    image: 'assets/images/elgin-01.jpeg'
   },
   {
     id: 7,
@@ -77,7 +77,7 @@ export class DealService {
     noi: 44709,
     purchasePrice: 361994,
     capRate: 0.12,
-    image: 'assets/images/elgin-01.jpeg'
+    image: 'assets/images/warehousing-01.jpg'
   },
   {
     id: 8,
@@ -86,8 +86,8 @@ export class DealService {
     address: '6391 Elgin St. Celina',
     noi: 911725,
     purchasePrice: 126483,
-    capRate: 0.06,
-    image: 'assets/images/warehousing-01.jpg'
+    capRate: 0.07,
+    image: 'assets/images/elgin-01.jpeg'
   }
 ];
 
@@ -102,7 +102,7 @@ export class DealService {
   }
 
  public addDeal(deal: Deal): Deal[] {
-  this.deals.push(deal);
+  this.deals.push({...deal, capRate: deal.capRate / 100});
   return this.deals;
  }
 
