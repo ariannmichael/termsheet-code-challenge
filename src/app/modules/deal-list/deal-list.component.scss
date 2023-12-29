@@ -1,3 +1,18 @@
+.deal-list {
+ display: flex;
+
+ &__filter {
+  background: #F8FBFC;
+  box-shadow: 2px 4px 4px 0px rgba(0, 0, 0, 0.25);
+ }
+
+ &__list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+ }
+}
+
 .toolbar--secondary {
  background: #F8FBFC;
  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -6,6 +21,7 @@
  align-self: center;
  align-items: center;
  justify-content: space-between;
+ padding-left: 1.4rem;
 
  &__search {
   height: 3.4rem;

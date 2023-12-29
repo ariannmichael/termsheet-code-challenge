@@ -1,17 +1,22 @@
-<section>
- <mat-toolbar class="toolbar--secondary">
-  <div>
-   <mat-form-field appearance="outline" class="toolbar--secondary__search">
-    <mat-icon matSuffix>search</mat-icon>
-    <mat-label>Search Name</mat-label>
-    <input matInput [(ngModel)]="dealName" (keyup.enter)="onSearch()">
-   </mat-form-field>
-  </div>
-  <div>
-   <button mat-mini-fab class="toolbar--secondary__add" aria-label="Add Deal" (click)="onAdd()">
-    <mat-icon>add</mat-icon>
-   </button>
-  </div>
- </mat-toolbar>
- <app-deal-card-list [deals]="deals"></app-deal-card-list>
+<section class="deal-list">
+ <div class="deal-list__filter">
+  <app-filter-options (filterOptionsEvent)="filterDealsByOptions($event)"></app-filter-options>
+ </div>
+ <div class="deal-list__list">
+  <mat-toolbar class="toolbar--secondary">
+   <div>
+    <mat-form-field appearance="outline" class="toolbar--secondary__search">
+     <mat-icon matSuffix>search</mat-icon>
+     <mat-label>Search Name</mat-label>
+     <input matInput [(ngModel)]="dealName" (keyup.enter)="onSearch()">
+    </mat-form-field>
+   </div>
+   <div>
+    <button mat-mini-fab class="toolbar--secondary__add" aria-label="Add Deal" (click)="onAdd()">
+     <mat-icon>add</mat-icon>
+    </button>
+   </div>
+  </mat-toolbar>
+  <app-deal-card-list [deals]="deals"></app-deal-card-list>
+ </div>
 </section>

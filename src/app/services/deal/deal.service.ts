@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Deal } from '../../shared/models/deal.model';
+import DealFilter from '../../shared/models/deal-filter';
 
 
-/**
- * Service to 
- */
 @Injectable({
  providedIn: 'root'
 })
@@ -99,12 +97,34 @@ export class DealService {
   return this.deals;
  }
 
+ public addDeal(deal: Deal): Deal[] {
+  this.deals.push(deal);
+  return this.deals;
+ }
+
  public searchDealsByName(dealName: string): Deal[] {
   return this.deals.filter(deal => deal.name.toLowerCase().includes(dealName.toLowerCase()));
  }
 
- public addDeal(deal: Deal): Deal[] {
-  this.deals.push(deal);
-  return this.deals;
+ public filterDeals(filter: DealFilter): Deal[] {
+  let deals = this.filterByType(this.deals, filter.type);
+  deals = this.filterByPurchasePrice(deals, filter.purchasePrice);
+  return deals;
+ }
+
+ private filterByType(deals: Deal[], type: string): Deal[] {
+  if(type === 'All') {
+    return deals;
+  }
+
+  return deals.filter(deal => deal.type === type);
+ }
+
+ private filterByPurchasePrice(deals: Deal[], purchasePrice: number): Deal[] {
+  if(purchasePrice === 0) {
+    return deals;
+  }
+
+  return deals.filter(deal => deal.purchasePrice <= purchasePrice);
  }
 }

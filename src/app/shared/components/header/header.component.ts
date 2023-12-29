@@ -3,10 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 
-/**
- * HeaderComponent is a component to mount the header
- * and be reused if needed, has links to the Deal List
- */
 @Component({
   selector: 'app-header',
   standalone: true,

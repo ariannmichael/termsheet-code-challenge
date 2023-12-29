@@ -1,1 +1,28 @@
-<p>filter-options works!</p>
+<mat-sidenav-container class="filter-container" >
+ <mat-sidenav-content mode="side" [formGroup]="filterForm">
+  <div class="filter-container__wrapper">
+    <p>
+      <mat-label class="filter-container__label">TYPES</mat-label>
+      <mat-radio-group class="radio-group" formControlName="type">
+        @for (dealType of dealTypes; track dealType) {
+          <mat-radio-button [value]="dealType">{{ dealType }}</mat-radio-button>
+        }
+      </mat-radio-group>
+    </p>
+    <p>
+      <mat-label class="filter-container__label">PRICE RANGE</mat-label>
+      <mat-form-field appearance="outline" class="price-range">
+        <input matInput type="number" [value]="filterForm.value.purchasePrice" formControlName="purchasePrice">
+        <span matTextPrefix>$&nbsp;</span>
+        <span matTextSuffix>.00</span>
+      </mat-form-field>
+      <mat-slider class="price-range" min="0" max="1000000" step="1000" showTickMarks discrete [displayWith]="formatLabel">
+        <input matSliderThumb [value]="filterForm.value.purchasePrice" formControlName="purchasePrice">
+      </mat-slider>
+    </p>
+    <p class="filter-container__button__container">
+      <button mat-raised-button (click)="onFilter()">Filter</button>
+    </p>
+  </div>
+ </mat-sidenav-content>
+</mat-sidenav-container>
