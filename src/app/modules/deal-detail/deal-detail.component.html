@@ -1,1 +1,46 @@
-<p>deal-detail works!</p>
+<section>
+ <mat-toolbar class="deal-detail__toolbar--secondary"></mat-toolbar>
+ <div class="deal-detail">
+  <div class="card">
+   <mat-card class="card__container">
+    <mat-card-header></mat-card-header>
+    <div class="img__container">
+     <h1 class="img__title">{{ deal.name }}</h1>
+     <img mat-card-image [src]="deal.image" alt="Deal Image">
+    </div>
+    <mat-card-content></mat-card-content>
+   </mat-card>
+  </div>
+
+  <div class="side-bar">
+   <mat-sidenav-container class="side-bar__container" >
+    <mat-sidenav-content mode="side">
+     <div class="side-bar__wrapper">
+       <h1 class="info__title">{{ deal.name }}</h1>
+       <hr/>
+       <div>
+        <label class="info__label">Address</label>
+        <p class="info__value">{{ deal.address }}</p>
+       </div>
+       <div>
+        <label class="info__label">Type</label>
+        <p class="info__value">{{ deal.type }}</p>
+       </div>
+       <div>
+        <label class="info__label">Price</label>
+        <p class="info__value">{{ deal.purchasePrice | currency }}</p>
+       </div>
+       <div>
+        <label class="info__label">NOI</label>
+        <p class="info__value">{{ deal.noi | currency }}</p>
+       </div>
+       <div>
+        <label class="info__label">Cap Rate</label>
+        <p class="info__value">{{ deal.capRate | percent}}</p>
+       </div>
+     </div>
+    </mat-sidenav-content>
+   </mat-sidenav-container>
+  </div>
+ </div>
+</section>

@@ -35,8 +35,6 @@ export class FilterOptionsComponent implements OnInit{
   }
 
   onFilter() {
-    console.log(this.filterForm.value);
-    
     const filter = new DealFilter(
       this.filterForm.value.type,
       this.filterForm.value.purchasePrice

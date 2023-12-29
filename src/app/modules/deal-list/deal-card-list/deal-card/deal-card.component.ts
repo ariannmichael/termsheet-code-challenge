@@ -1,6 +1,6 @@
 import { Component, EventEmitter, HostBinding, Input, OnInit, Output } from '@angular/core';
 import { Deal } from '../../../../shared/models/deal.model';
-
+import { colorByDealType } from '../../../../shared/helpers';
 @Component({
   selector: 'app-deal-card',
   templateUrl: './deal-card.component.html',
@@ -20,13 +20,7 @@ export class DealCardComponent implements OnInit {
   }
 
   updateBackgroundColor(): void {
-    if(this.deal.type === 'Development') {
-      this.color = '#178F82';
-    } else if(this.deal.type === 'Acquisition') {
-      this.color = '#8764D8';
-    } else {
-      this.color = '#F94B76';
-    }
+    this.color = colorByDealType(this.deal);
   }
 
   onEdit(): void {

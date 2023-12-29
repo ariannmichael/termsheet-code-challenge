@@ -97,6 +97,10 @@ export class DealService {
   return this.deals;
  }
 
+  public getDealById(id: number): Deal {
+    return this.deals.find(deal => deal.id === id)!;
+  }
+
  public addDeal(deal: Deal): Deal[] {
   this.deals.push(deal);
   return this.deals;
@@ -105,8 +109,6 @@ export class DealService {
  public editDeal(deal: Deal): Deal[] {
   const index = this.deals.findIndex(d => d.id === deal.id);
   this.deals[index] = deal;
-  console.log(this.deals);
-  
   return this.deals;
  }
 
