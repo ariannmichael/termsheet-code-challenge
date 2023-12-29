@@ -102,7 +102,7 @@ export class DealService {
   }
 
  public addDeal(deal: Deal): Deal[] {
-  this.deals.push({...deal, capRate: deal.capRate / 100});
+  this.deals.push({...deal, id: this.deals.length + 1, capRate: deal.capRate / 100});
   return this.deals;
  }
 

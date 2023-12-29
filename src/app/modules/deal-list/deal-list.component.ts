@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Deal } from '../../shared/models/deal.model';
 import { DealService } from '../../services/deal/deal.service';
 import DealFilter from '../../shared/models/deal-filter';
@@ -10,7 +10,7 @@ import { DealDialogComponent } from '../../shared/components/deal-dialog/deal-di
   templateUrl: './deal-list.component.html',
   styleUrls: ['./deal-list.component.scss']
 })
-export class DealListComponent implements OnInit{
+export class DealListComponent implements OnInit {
   deals: Deal[] = [];
   dealName: string = '';
 
@@ -41,9 +41,13 @@ export class DealListComponent implements OnInit{
 
     dialogRef.afterClosed().subscribe((result: Deal[]) => {
       if(!result) return;
+      
       result.map((deal: Deal) => {
         this.dealService.addDeal(deal);
       });
+
+      const newDeals = this.dealService.getDeals();      
+      this.deals = [...newDeals];      
     });
   }
 
@@ -54,7 +58,11 @@ export class DealListComponent implements OnInit{
 
     dialogRef.afterClosed().subscribe((result: Deal[]) => {
       if(!result) return;
+
       this.dealService.editDeal(result[0]);
+
+      const newDeals = this.dealService.getDeals();     
+      this.deals = [...newDeals];
     });
   }
 
